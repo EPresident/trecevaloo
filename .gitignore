@@ -14,3 +14,16 @@ texdoclet/*
 test_TREC8_full/*
 texdoclet
 data/*
+
+
+# =========================
+# NetBeans Project Files 
+# =========================
+
+build/
+dist/
+store/
+nbproject/
+manifest.mf
+build.xml
+lib/
