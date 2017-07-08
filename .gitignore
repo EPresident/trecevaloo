@@ -14,6 +14,7 @@ texdoclet/*
 test_TREC8_full/*
 texdoclet
 data/*
+results_out/
 
 
 # =========================
