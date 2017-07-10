@@ -28,7 +28,7 @@ public class EvaluatorManager {
     static public boolean onlyJudgedDocs;
     static public boolean avgOverAllTopicsInCollection;
     static public int numOfDocsPerTopic;
-    public double time = 0;
+    private double time = 0;
 
     /**
      * Constructor of the EvaluatorManager.
@@ -82,7 +82,7 @@ public class EvaluatorManager {
         computationDone = true;
         System.out.println("\nCOMPUTATION SUCCESSFULLY COMPLETED.");
         System.out.println("Time elapsed: " + difference / 1000 + " seconds\n");
-        time = difference / 1000;
+        setTime(difference / 1000);
         System.out.println("Statistics: ");
         System.out.println("Number of runs: " + runSet.getRuns().size());
         System.out.println("Total of runLines: " + totalRunLines);
@@ -222,5 +222,19 @@ public class EvaluatorManager {
         } catch (TrecEvalOOException e) {
             e.printStackTrace();
         }
+    }
+    
+        /**
+     * @return the time
+     */
+    public double getTime() {
+        return time;
+    }
+
+    /**
+     * @param time the time to set
+     */
+    public void setTime(double time) {
+        this.time = time;
     }
 }

@@ -125,7 +125,7 @@ public class Test {
             evaluatorManager.exportResults(resultExporter);
         }
 
-        return evaluatorManager.time;
+        return evaluatorManager.getTime();
 
     }
 

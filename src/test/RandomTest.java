@@ -119,7 +119,7 @@ public class RandomTest {
             evaluatorManager.exportResults(resultExporter);
         }
 
-        return evaluatorManager.time;
+        return evaluatorManager.getTime();
 
     }
 
