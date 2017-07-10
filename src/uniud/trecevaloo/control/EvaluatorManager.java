@@ -56,7 +56,7 @@ public class EvaluatorManager {
         long start_time = System.nanoTime();
 
         try {
-            importation();
+            importRunsAndCollections();
         } catch (TrecEvalOOException e) {
             e.printStackTrace();
             computationDone = false;
@@ -165,7 +165,7 @@ public class EvaluatorManager {
      * @throws TrecEvalOOException if the importation failed it throws an
      * exception.
      */
-    private void importation() throws TrecEvalOOException {
+    private void importRunsAndCollections() throws TrecEvalOOException {
 
         System.out.println("\nSTART IMPORTATION.\n");
 
