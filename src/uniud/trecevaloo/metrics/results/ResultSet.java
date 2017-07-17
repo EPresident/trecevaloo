@@ -14,11 +14,10 @@ public class ResultSet extends ResultComponent{
 
     /**
      * The constructor (is always used internally).
-     * @param runName run name.
      * @param metric metric.
      */
-    public ResultSet(String runName, Metric metric){
-        super("",metric,runName);
+    public ResultSet(Metric metric){
+        super("",metric);
     }
 
     /**
@@ -41,24 +40,31 @@ public class ResultSet extends ResultComponent{
     }
 
     /**
-     * Iterate the result set creating the string of all results contained in this result set.
+     * Iterate the result set creating the string of all results contained in
+     * this result set.
+     *
      * @return the results in string format.
      */
     @Override
     public String toString() {
 
-       String resultStr = "";
+        String resultStr = "";
 
-       for (ResultComponent result: results) {
+        for (ResultComponent result : results) {
 
-           if(result==null){
-               continue;
-           }
-         
-           resultStr += result.toString();
-       }
+            if (result == null) {
+                continue;
+            }
 
-       return resultStr;
+            if(result instanceof RunResultSet){
+                RunResultSet rrs = (RunResultSet) result;
+                resultStr += "\nResults for run: " + rrs.getRunName() + "\n";
+            }
+
+            resultStr += result.toString();
+        }
+
+        return resultStr;
     }
 
     /**

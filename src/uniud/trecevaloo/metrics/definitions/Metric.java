@@ -43,7 +43,7 @@ public abstract class Metric implements MetricComponent {
         this.run = run;
 
         // the metric run set
-        ResultSet metricResults  = new MetricResultSet("", this);
+        ResultSet metricResults  = new MetricResultSet(this);
 
         for (TopicRun topicRun: run) {
 

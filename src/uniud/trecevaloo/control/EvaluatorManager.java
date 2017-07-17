@@ -45,7 +45,7 @@ public class EvaluatorManager {
         onlyJudgedDocs = false;
         computationDone = false;
         numOfDocsPerTopic = Integer.MAX_VALUE;
-        results = new GeneralResultSet("", null);
+        results = new GeneralResultSet(null);
     }
 
     /**

@@ -14,32 +14,18 @@ import uniud.trecevaloo.metrics.definitions.Metric;
  */
 public class RunResultSet extends ResultSet {
 
-    public RunResultSet(String runName, Metric metric) {
-        super(runName, metric);
+    private final String runName;
+    
+    public RunResultSet(String runName, Metric metric) {     
+        super(metric);
+        this.runName = runName;
     }
-
+    
     /**
-     * Iterate the result set creating the string of all results contained in
-     * this result set.
-     *
-     * @return the results in string format.
+     * Returns the run name.
+     * @return the run name.
      */
-    @Override
-    public String toString() {
-
-        String resultStr = "";
-
-        for (ResultComponent result : results) {
-
-            if (result == null) {
-                continue;
-            }
-
-            resultStr += "\nResults for run: " + result.getRunName() + "\n";
-
-            resultStr += result.toString();
-        }
-
-        return resultStr;
+    public String getRunName() {
+        return runName;
     }
 }

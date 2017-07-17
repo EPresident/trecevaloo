@@ -11,8 +11,7 @@ import java.util.List;
 public abstract class ResultComponent {
 
     private String idTopic;
-    private Metric metric;
-    private String runName;
+    private Metric metric;    
 
     public static final String ALL  = "ALL";
 
@@ -23,10 +22,9 @@ public abstract class ResultComponent {
      * @param runName the run name.
      * @param type the type (used internally)
      */
-    ResultComponent(String idTopic, Metric metric, String runName){
+    ResultComponent(String idTopic, Metric metric){
         this.idTopic = idTopic;
         this.metric = metric;
-        this.runName = runName;
     }
 
     /**
@@ -98,11 +96,4 @@ public abstract class ResultComponent {
         return metric.isOverallMetric();
     }
 
-    /**
-     * Returns the run name.
-     * @return the run name.
-     */
-    public String getRunName() {
-        return runName;
-    }
 }

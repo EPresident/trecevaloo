@@ -34,7 +34,10 @@ public class MetricResultViewer implements ResultViewer {
 
                 List<Result> resultList = runResult.getResultsByMetric(metricName);
 
-                System.out.println("\nResults for run: " + runResult.getRunName());
+                if(runResult instanceof RunResultSet){
+                    RunResultSet rrs = (RunResultSet) runResult;
+                    System.out.println("\nResults for run: " + rrs.getRunName());
+                }
                 if (resultList.isEmpty()) {
                     System.out.println("No results for metric " + metricName);
                 }

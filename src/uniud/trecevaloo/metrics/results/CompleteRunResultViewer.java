@@ -4,23 +4,25 @@ import uniud.trecevaloo.exceptions.TrecEvalOOException;
 
 /**
  * This viewer shows all results (also for each topic) for a given run.
- **/
+ *
+ */
 public class CompleteRunResultViewer implements ResultViewer {
-
 
     private String runName;
 
     /**
      * CompleteRunResultViewer constructor.
+     *
      * @param runName the name of the run.
      */
-    public CompleteRunResultViewer(String runName){
+    public CompleteRunResultViewer(String runName) {
         this.runName = runName;
     }
 
     /**
-     * This method shows  all results (also for each topic) for a given run.
-     **/
+     * This method shows all results (also for each topic) for a given run.
+     *
+     */
     @Override
     public void show(ResultComponent results) throws TrecEvalOOException {
 
@@ -30,9 +32,13 @@ public class CompleteRunResultViewer implements ResultViewer {
 
         for (ResultComponent result : results.getResults()) {
 
-            if (result.getRunName().equals(runName)) {
-                System.out.println(result.toString());
+            if (result instanceof RunResultSet) {
+                RunResultSet rrs = (RunResultSet) result;
+                if (rrs.getRunName().equals(runName)) {
+                    System.out.println(result.toString());
+                }
             }
+
         }
     }
 }

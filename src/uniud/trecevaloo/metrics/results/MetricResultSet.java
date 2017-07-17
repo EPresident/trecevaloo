@@ -14,8 +14,8 @@ import uniud.trecevaloo.metrics.definitions.Metric;
  */
 public class MetricResultSet extends ResultSet {
 
-    public MetricResultSet(String runName, Metric metric) {
-        super(runName, metric);
+    public MetricResultSet(Metric metric) {
+        super(metric);
     }
 
 }

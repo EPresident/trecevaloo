@@ -36,11 +36,13 @@ public class MetricRunResultViewer implements ResultViewer {
 
             for (ResultComponent runResult : results.getResults()) {
 
-                if (runResult.getRunName().equals(runName)) {
+                if(runResult instanceof RunResultSet){
+                    RunResultSet rrs = (RunResultSet) runResult;
+                    if (rrs.getRunName().equals(runName)) {
 
                     List<Result> resultList = runResult.getResultsByMetric(metricName);
 
-                    System.out.println("\nResults for run: " + runResult.getRunName());
+                    System.out.println("\nResults for run: " + rrs.getRunName());
                     if (resultList.isEmpty()) {
                         System.out.println("No results for metric " + metricName);
                     }
@@ -48,6 +50,7 @@ public class MetricRunResultViewer implements ResultViewer {
                     for (Result result : resultList) {
                         System.out.print(result.toString());
                     }
+                }
                 }
             }
         }
