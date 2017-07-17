@@ -11,13 +11,16 @@ import java.util.List;
  */
 public abstract class Result extends ResultComponent {
 
+    private String idTopic;
+    
     /**
      * The Result constructor.
      * @param idTopic topic id.
      * @param metric metric.
      */
     public Result(String idTopic, Metric metric){
-        super(idTopic,metric);
+        super(metric);
+        this.idTopic = idTopic;
     }
 
     /**
@@ -97,6 +100,14 @@ public abstract class Result extends ResultComponent {
     @Override
     public Result getResult(String metricName, String idTopic) {
         return this;
+    }
+    
+    /**
+     * Returns the id topic.
+     * @return id topic.
+     */
+    public String getIdTopic() {
+        return idTopic;
     }
 
 }

@@ -17,7 +17,7 @@ public class ResultSet extends ResultComponent{
      * @param metric metric.
      */
     public ResultSet(Metric metric){
-        super("",metric);
+        super(metric);
     }
 
     /**

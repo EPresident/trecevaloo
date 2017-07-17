@@ -10,7 +10,6 @@ import java.util.List;
  */
 public abstract class ResultComponent {
 
-    private String idTopic;
     private Metric metric;    
 
     public static final String ALL  = "ALL";
@@ -22,8 +21,7 @@ public abstract class ResultComponent {
      * @param runName the run name.
      * @param type the type (used internally)
      */
-    ResultComponent(String idTopic, Metric metric){
-        this.idTopic = idTopic;
+    ResultComponent(Metric metric){
         this.metric = metric;
     }
 
@@ -71,14 +69,6 @@ public abstract class ResultComponent {
      * @return metric result.
      */
     public abstract Result getResult(String metricName, String idTopic);
-
-    /**
-     * Returns the id topic.
-     * @return id topic.
-     */
-    public String getIdTopic() {
-        return idTopic;
-    }
 
     /**
      * Returns the metric acronym.
