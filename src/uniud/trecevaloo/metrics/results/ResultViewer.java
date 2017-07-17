@@ -5,7 +5,7 @@ import uniud.trecevaloo.exceptions.TrecEvalOOException;
 /**
  * This interface manages the results visualizations, implement this class for create a new result viewer.
  */
-public interface ResultViewer extends ResultManager {
+public interface ResultViewer {
 
     /**
      * Implement this method to manage a specific kind of visualization.

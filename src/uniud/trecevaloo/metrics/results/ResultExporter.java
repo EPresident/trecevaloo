@@ -5,7 +5,7 @@ import uniud.trecevaloo.exceptions.TrecEvalOOException;
 /**
  * Implement this interface to manage different types of exportation of your results (to file, db, ...).
  */
-public interface ResultExporter extends ResultManager{
+public interface ResultExporter {
 
     /**
      * Implement this method to manage a specific kind of exportation.
