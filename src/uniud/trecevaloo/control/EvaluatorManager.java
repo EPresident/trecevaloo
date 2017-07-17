@@ -45,7 +45,7 @@ public class EvaluatorManager {
         onlyJudgedDocs = false;
         computationDone = false;
         numOfDocsPerTopic = Integer.MAX_VALUE;
-        results = new ResultSet("", null, ResultComponent.Type.GENERAL);
+        results = new GeneralResultSet("", null);
     }
 
     /**
@@ -105,7 +105,7 @@ public class EvaluatorManager {
             List<TopicRun> runEachTopic = run.getRun();
 
             // create run results set
-            ResultSet runResults = new ResultSet(run.getName(), null, ResultComponent.Type.RUN);
+            ResultSet runResults = new RunResultSet(run.getName(), null);
 
             // compute some run statistics
             statistics.compute(collection, runEachTopic, runResults);

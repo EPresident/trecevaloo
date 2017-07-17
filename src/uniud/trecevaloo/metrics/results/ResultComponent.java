@@ -10,13 +10,10 @@ import java.util.List;
  */
 public abstract class ResultComponent {
 
-    public enum Type {GENERAL, RUN, METRIC, RESULT}
-
     private String idTopic;
     private Metric metric;
     private String runName;
 
-    private Type type;
     public static final String ALL  = "ALL";
 
     /**
@@ -26,11 +23,10 @@ public abstract class ResultComponent {
      * @param runName the run name.
      * @param type the type (used internally)
      */
-    ResultComponent(String idTopic, Metric metric, String runName, Type type){
+    ResultComponent(String idTopic, Metric metric, String runName){
         this.idTopic = idTopic;
         this.metric = metric;
         this.runName = runName;
-        this.type = type;
     }
 
     /**
@@ -100,14 +96,6 @@ public abstract class ResultComponent {
      */
     public boolean isOverallMetric(){
         return metric.isOverallMetric();
-    }
-
-    /**
-     * Returns the result (result set) type (GENERAL, RUN, METRIC, RESULT).
-     * @return the result type.
-     */
-    public Type getType() {
-        return type;
     }
 
     /**

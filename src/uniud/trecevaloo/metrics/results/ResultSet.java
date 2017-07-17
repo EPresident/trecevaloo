@@ -16,10 +16,9 @@ public class ResultSet extends ResultComponent{
      * The constructor (is always used internally).
      * @param runName run name.
      * @param metric metric.
-     * @param type the type of metric set (GENERAL, METRIC, STATISTIC).
      */
-    public ResultSet(String runName, Metric metric, Type type){
-        super("",metric,runName,type);
+    public ResultSet(String runName, Metric metric){
+        super("",metric,runName);
     }
 
     /**
@@ -55,10 +54,7 @@ public class ResultSet extends ResultComponent{
            if(result==null){
                continue;
            }
-
-           if(result.getType() == Type.RUN){
-               resultStr += "\nResults for run: " + result.getRunName() + "\n";
-           }
+         
            resultStr += result.toString();
        }
 

@@ -17,7 +17,7 @@ public abstract class Result extends ResultComponent {
      * @param metric metric.
      */
     public Result(String idTopic, Metric metric){
-        super(idTopic,metric,"",Type.RESULT);
+        super(idTopic,metric,"");
     }
 
     /**

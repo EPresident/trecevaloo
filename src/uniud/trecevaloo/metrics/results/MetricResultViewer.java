@@ -28,7 +28,7 @@ public class MetricResultViewer implements ResultViewer {
         System.out.println("*************** " + metricName + " output ****************");
         System.out.println("************************************************");
 
-        if (results.getType() == ResultComponent.Type.GENERAL) {
+        if (results instanceof GeneralResultSet) {
 
             for (ResultComponent runResult : results.getResults()) {
 

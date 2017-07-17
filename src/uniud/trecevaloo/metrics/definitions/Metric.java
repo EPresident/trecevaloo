@@ -10,6 +10,7 @@ import uniud.trecevaloo.metrics.results.ResultSet;
 
 import java.util.List;
 import java.util.ArrayList;
+import uniud.trecevaloo.metrics.results.MetricResultSet;
 
 
 /**
@@ -42,7 +43,7 @@ public abstract class Metric implements MetricComponent {
         this.run = run;
 
         // the metric run set
-        ResultSet metricResults  = new ResultSet("", this, ResultComponent.Type.METRIC);
+        ResultSet metricResults  = new MetricResultSet("", this);
 
         for (TopicRun topicRun: run) {
 

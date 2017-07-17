@@ -29,7 +29,7 @@ public class SingleResultViewer implements   ResultViewer {
         System.out.println("*************** Single output ******************");
         System.out.println("************************************************");
 
-        if (results.getType() == ResultComponent.Type.GENERAL) {
+        if (results instanceof GeneralResultSet) {
 
             for (ResultComponent runResult : results.getResults()) {
                 System.out.println("\nResults for run: " + runResult.getRunName());
