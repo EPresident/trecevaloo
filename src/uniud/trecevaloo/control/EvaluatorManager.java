@@ -28,7 +28,7 @@ public class EvaluatorManager {
     static public boolean onlyJudgedDocs;
     static public boolean avgOverAllTopicsInCollection;
     static public int numOfDocsPerTopic;
-    private double time = 0;
+    private Time time = new Time(0);
 
     /**
      * Constructor of the EvaluatorManager.
@@ -77,12 +77,15 @@ public class EvaluatorManager {
         
         // end time
         long end_time = System.nanoTime();
-        double difference = (end_time - start_time) / 1e6;
+        Time difference = new Time((end_time - start_time), TimeUnit.NANOSEC);
+        difference.setUnit(TimeUnit.SEC);
+        
+        if(difference.getValue()<1) difference.setUnit(TimeUnit.MILLISEC);
 
         computationDone = true;
         System.out.println("\nCOMPUTATION SUCCESSFULLY COMPLETED.");
-        System.out.println("Time elapsed: " + difference / 1000 + " seconds\n");
-        setTime(difference / 1000);
+        System.out.println("Time elapsed: " + difference + "\n");
+        setTime(difference.getValue());
         System.out.println("Statistics: ");
         System.out.println("Number of runs: " + runSet.getRuns().size());
         System.out.println("Total of runLines: " + totalRunLines);
@@ -224,10 +227,10 @@ public class EvaluatorManager {
         }
     }
     
-        /**
+     /**
      * @return the time
      */
-    public double getTime() {
+    public Time getTime() {
         return time;
     }
 
@@ -235,6 +238,6 @@ public class EvaluatorManager {
      * @param time the time to set
      */
     public void setTime(double time) {
-        this.time = time;
+        this.time.setValue(time);
     }
 }

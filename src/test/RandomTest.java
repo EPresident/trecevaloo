@@ -18,6 +18,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
+import uniud.trecevaloo.control.Time;
 
 /**
  * Created by yannick on 12/10/16. Repurposed by Elia on 10/07/2017. This class
@@ -42,7 +43,7 @@ public class RandomTest {
     private static ResultExporter resultExporter = null;
     private static RelevanceType relevanceType = new NumericalCategoryRelevanceType(3, 1);
     private static RelevanceType runRelevanceType = new NumericRelevanceType(1.0);
-    private static double totalTime = 0;
+    private static Time totalTime = new Time(0);
 
     public static void main(String[] args) throws IOException {
         System.out.println("--------------- TESTING TRECEVALOO --------------------");
@@ -58,23 +59,24 @@ public class RandomTest {
         int num = 10;
         for (int i = 0; i < num; i++) {
             System.out.println("ITER " + i);
-            double time = compute();
+            Time time = compute();
             test += "Test " + i + " time: " + time + "\n";
-            totalTime += time;
+            totalTime.sum(time);
         }
 
-        test += "Average " + totalTime / num;
+        totalTime.setValue(totalTime.getValue()/num);
+        test += "Average " + totalTime+"\n";
 
         System.out.print(test);
     }
 
-    static double compute() {
+    static Time compute() {
         if (runPath.isEmpty()) {
             System.out.println("Missing run path (or runs folder path)");
-            return 0;
+            return new Time(0);
         } else if (qrelPath.isEmpty()) {
             System.out.println("Missing qrels path");
-            return 0;
+            return new Time(0);
         }
 
         System.out.println();
