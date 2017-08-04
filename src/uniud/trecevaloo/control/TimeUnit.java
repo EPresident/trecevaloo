@@ -17,14 +17,14 @@ public class TimeUnit {
      * The number you have to multiply the unit to obtain it from the base one.
      * For example: milliseconds have a 1000 multiplier, because 1 second = 1000 ms.
      */
-    private final long MULTIPLIER_TO_BASE;
+    private final double MULTIPLIER_TO_BASE;
     
     public final static TimeUnit SEC = new TimeUnit("second", "s", 1);
     public final static TimeUnit MILLISEC = new TimeUnit("millisecond", "ms", 1000);
     public final static TimeUnit MICROSEC = new TimeUnit("microsecond", "μs", 1000000);
     public final static TimeUnit NANOSEC = new TimeUnit("nanosecond", "ns", 1000000000);
     
-    private TimeUnit(String name, String acron, long mult){
+    protected TimeUnit(String name, String acron, double mult){
         BASE_UNIT = SEC;
         ACRONYM = acron;
         NAME = name;
@@ -48,7 +48,7 @@ public class TimeUnit {
         return NAME;
     }
 
-    public long getMultiplierToBase() {
+    public double getMultiplierToBase() {
         return MULTIPLIER_TO_BASE;
     }
     

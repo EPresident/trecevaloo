@@ -48,7 +48,7 @@ public class Time implements Comparable<Time> {
 
     public void setUnit(TimeUnit tu) {
         if (unit != tu) {
-            value *= getConversionMultiplier(unit,tu);
+            value *= getConversionMultiplier(unit, tu);
             unit = tu;
         }
     }
@@ -85,21 +85,22 @@ public class Time implements Comparable<Time> {
      */
     public Time convertTo(TimeUnit tu) {
         if (unit != tu) {
-            return new Time(value * getConversionMultiplier(unit,tu), tu);
+            return new Time(value * getConversionMultiplier(unit, tu), tu);
         }
         return new Time(this);
     }
 
-    private static double getConversionMultiplier(TimeUnit from, TimeUnit to){
+    private static double getConversionMultiplier(TimeUnit from, TimeUnit to) {
         return (double) (to.getMultiplierToBase())
-                    / (double) (from.getMultiplierToBase());
+                / (double) (from.getMultiplierToBase());
     }
-    
+
     /**
      * Add the specified Time to this one.
+     *
      * @param t The Time to add
      */
-    public void sum(Time t){
+    public void sum(Time t) {
         Time time = t;
         if (unit != t.getUnit()) {
             time = t.convertTo(unit);

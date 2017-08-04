@@ -5,6 +5,7 @@
  */
 package test;
 
+import uniud.trecevaloo.control.Minute;
 import uniud.trecevaloo.control.Time;
 import uniud.trecevaloo.control.TimeUnit;
 
@@ -23,6 +24,8 @@ public class TimeTest {
         System.out.println("\t... "+t.toString());
         t = t1s.convertTo(TimeUnit.NANOSEC);
         System.out.println("\t... "+t.toString());
+        t = t1s.convertTo(Minute.getInstance());
+        System.out.println("\t... "+t.toString());
         
         Time t7mu = new Time(7, TimeUnit.MICROSEC);
         System.out.println(t7mu.toString()+" are...");
@@ -31,6 +34,8 @@ public class TimeTest {
         t = t7mu.convertTo(TimeUnit.MILLISEC);
         System.out.println("\t... "+t.toString());
         t = t7mu.convertTo(TimeUnit.NANOSEC);
+        System.out.println("\t... "+t.toString());
+        t = t7mu.convertTo(Minute.getInstance());
         System.out.println("\t... "+t.toString());
     }
 
